@@ -91,6 +91,7 @@
             // pseudo-hover for touchscreens
             var isTouchMode = false;
             if ("ontouchstart" in document.documentElement) isTouchMode = true;
+            var isHoveringNav = false;
 
             // SVG Animation
             var currentStudent = svgdata["alexis"];
@@ -135,12 +136,14 @@
             });
 
             navContainer.addEventListener('mouseout', function() {
+                isHoveringNav = false;
                 clearLinkState();
                 newColorLink();
                 interval = setInterval(newColorLink, 5000);
             });
             
             navContainer.addEventListener('mouseover', function() {
+                isHoveringNav = true;
                 clearHighlights();
                 clearInterval(interval);
             });
@@ -167,13 +170,15 @@
             }
             
             function newColorLink() {
-                var index = getRandomInt(links.length);
-                var color = links[index].dataset.color;
-                var studentname = links[index].dataset.studentname;
-                setLinkState(color, studentname);
+                if (!isHoveringNav) {
+                    var index = getRandomInt(links.length);
+                    var color = links[index].dataset.color;
+                    var studentname = links[index].dataset.studentname;
+                    setLinkState(color, studentname);
 
-                clearHighlights();
-                links[index].classList.add('highlight');
+                    clearHighlights();
+                    links[index].classList.add('highlight');
+                }
             }
             
             newColorLink();
