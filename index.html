@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Type and Media 2019</title>
+
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <link rel="stylesheet" href="static/style.css" />
+        
+        <link rel="icon" 
+			  type="image/png" 
+			  href="../static/tmFavicon.png">
+
+    </head>
+    
+    <body>
+        <div class="tm_sidebar_permanent" id="sidebar_panel">
+            <a class="tm_sidebar_top" href="/">Type and Media 2019</a>
+            <a class="tm_sidebar_bottom" id="sidebar_about">About</a>
+        </div>
+
+        <div class="tm_sidebar_nav index transparent" id="sidebar_nav">
+            <nav id="nav_shuffle">
+                <a href="/alexis" data-color='#8ad4ba' data-studentname="alexis" class="md_nav">
+                    Alexis Boscariol
+                </a>
+                <a href="/anya" data-color='#ea1956' data-studentname="anya" class="md_nav">
+                    Anya Danilova
+                </a>
+                <a href="/celine" data-color='#f03296' data-studentname="celine" class="md_nav">
+                    Céline Odermatt
+                </a>
+                <a href="/ethan" data-color='#fe3523' data-studentname="ethan" class="md_nav">
+                    Ethan Cohen
+                </a>
+                <a href="/eva" data-color='#dcdcdc' data-studentname="eva" class="md_nav">
+                    Eva Abdulina
+                </a>
+                <a href="/fabi" data-color='#c3d2e0' data-studentname="fabi" class="md_nav">
+                    Fabiola Mejía
+                </a>
+                <a href="/joona" data-color='#0f5bfa' data-studentname="joona" class="md_nav">
+                    Joona Louhi
+                </a>
+                <a href="/luke" data-color='#ea1956' data-studentname="luke" class="md_nav">
+                    Luke Charsley
+                </a>
+                <a href="/mike" data-color='#ff4fff' data-studentname="mike" class="md_nav">
+                    Michelangelo Nigra
+                </a>
+                <a href="/rick" data-color='#00b7b5' data-studentname="rick" class="md_nav">
+                    Ricard Garcia
+                </a>
+                <a href="/rutherford" data-color='#aaaaaa' data-studentname="rutherford" class="md_nav">
+                    Rutherford Craze
+                </a>
+                <a href="/ryan" data-color='#ffab00' data-studentname="ryan" class="md_nav">
+                    Ryan Bugden
+                </a>
+            </nav>
+        </div>
+
+        <div class="tm_anim_container" id="anim_container">
+        </div>
+
+        <div class="tm_about_fade" id="about_fade"></div>
+        <div class="tm_about_panel" id="about_panel">
+            <div class="tm_info">
+                <div class="tm_info_about">
+                    <p><a href="http://typemedia.org/">Type and Media</a> is a master’s degree course in typeface design at the Royal Academy of Art in The Hague (KABK). During the first semester, the students have several ongoing modules with concurrent projects, interspersed with a diverse set of workshops. During the second semester, each student focuses on a single project. This site showcases the final projects of the class of 2019. Enjoy!</p>
+					<p>Special thanks to the faculty and supervisors at Type and Media for their expertise, wisdom, and support: Erik van Blokland, Peter Verheul, Paul van der Laan, Peter Biľak, Françoise Berserik, Frank Grießhammer, Petr van Blokland, Marja van der Burgh, Fred Smeijers, Just van Rossum, Jan Willem Stas, Ilya Ruderman, Kristyan Sarkis, Timothy Donaldson, Bas Smidt, our guests Paul Barnes and Henrik Birkvig, and our neighborly friends Tânia Raposo, Namrata Goyal, and Phill Specter.</p>
+					<p>The t]m19 graduates are Alexis Boscariol (France), Anya Danilova (Russia), Céline Odermatt (Switzerland), Ethan Cohen (United States), Eva Abdulina (Latvia), Fabiola Mejía (Costa Rica), Joona Louhi (Finland), Luke Charsley (United Kingdom), Michelangelo Nigra (Italy), Ricard Garcia (Catalonia), Rutherford Craze (United Kingdom), and Ryan Bugden (United States).</p>
+					<p>Website by Rutherford Craze, Alexis Boscariol, Ryan Bugden, and Ethan Cohen. The typefaces in use are Brenner Sans, Action Text, and Action Condensed, courtesy of <a href="https://www.typotheque.com/">Typotheque</a>, <a href="http://letterror.com/">Letterror</a>, and <a href="https://commercialtype.com/">Commercial Type</a>, respectively&#8201;—&#8201;thank you!</p>
+
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="static/panels.js"></script>
+        <!-- Separating the svg blob into its own file -->
+        <script type="text/javascript" src="media/svgdata.js"></script>
+        <script type="text/javascript">
+            var interval;
+            var frameloop;
+            let root = document.documentElement;
+            var links = Array.from(document.getElementsByClassName('md_nav'));
+            var animContainer = document.getElementById('anim_container');
+            var navContainer = document.getElementById('sidebar_nav');
+
+            // pseudo-hover for touchscreens
+            var isTouchMode = false;
+            if ("ontouchstart" in document.documentElement) isTouchMode = true;
+
+            // SVG Animation
+            var currentStudent = svgdata["alexis"];
+            var currentIndex = 0;
+            updateImageState(currentStudent, currentIndex);
+
+            frameloop = setInterval(function() {
+                updateImageState(currentStudent, currentIndex);
+                if (currentIndex >= currentStudent.length - 1) {
+                    currentIndex = 0;
+                } else {
+                    currentIndex ++;
+                }
+            }, 140);
+
+
+            function updateImageState(student, index) {
+                if (student[index]) {
+                    animContainer.innerHTML = student[index];
+                } else {
+                    animContainer.innerHTML = student[0];
+                }
+            }
+
+            // Link Highlighting
+            links.forEach(function(target) {
+                var color = target.dataset.color;
+                var studentname = target.dataset.studentname;
+                target.addEventListener('mouseover', function() {
+                    setLinkState(color, studentname);
+                });
+
+                if (isTouchMode) {
+                    target.addEventListener('click', function(e) {
+                        if (!e.target.classList.contains('highlight')) {
+                            e.preventDefault();
+                            e.target.classList.add('highlight');
+                            setLinkState(color, studentname);
+                        }
+                    });
+                }
+            });
+
+            navContainer.addEventListener('mouseout', function() {
+                clearLinkState();
+                newColorLink();
+                interval = setInterval(newColorLink, 5000);
+            });
+            
+            navContainer.addEventListener('mouseover', function() {
+                clearHighlights();
+                clearInterval(interval);
+            });
+
+            function setLinkState(color, studentname) {
+                root.style.setProperty('--accent', color);
+                if (svgdata[studentname]) currentStudent = svgdata[studentname];
+            }
+            
+            function clearLinkState() {
+                newColorLink();
+            }
+
+            function clearHighlights() {
+                for (var i in links) {
+                    if (links[i].classList.contains('highlight')) {
+                        links[i].classList.remove('highlight');
+                    }
+                }
+            }
+            
+            function getRandomInt(max) {
+                return Math.floor(Math.random() * Math.floor(max));
+            }
+            
+            function newColorLink() {
+                var index = getRandomInt(links.length);
+                var color = links[index].dataset.color;
+                var studentname = links[index].dataset.studentname;
+                setLinkState(color, studentname);
+
+                clearHighlights();
+                links[index].classList.add('highlight');
+            }
+            
+            newColorLink();
+            interval = setInterval(newColorLink, 5000);
+        </script>
+    </body>
+</html>
