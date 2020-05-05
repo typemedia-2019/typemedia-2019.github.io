@@ -418,7 +418,7 @@ a.icon:hover {
 }
 
 
-@media only screen and (max-height: 500px) {
+@media only screen and (max-height: 640px) {
     .tm_sidebar_permanent {
         width: 56px;
         
