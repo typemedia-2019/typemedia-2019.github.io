@@ -1,4 +1,4 @@
- -------------------------------------------------- */
+/* -------------------------------------------------- */
 /* RESET */
 /* -------------------------------------------------- */
 
@@ -37,41 +37,12 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 
 @charset "UTF-8";
-
+    
 @font-face {
-	font-family: "ActionCondensed";
-	src: url("type/ActionCondensedBoldWeb-Grade1.woff2") format("woff2"), url("type/ActionCondensedBoldWeb-Grade1.woff") format("woff");
-	font-weight: 300;
-	font-style: normal;
-	font-stretch: normal; 
-	}
-	
-@font-face {
-	font-family: 'ActionText';
-	src: url("type/ActionText-MediumDark.woff") format("woff"), url("type/ActionText-MediumDark.woff2") format("woff2");
-	font-weight: 550;
-	font-style: normal; 
-	}
-  
-@font-face {
-	font-family: 'BrennerSans';
-	src: url("type/WF-031173-011076-002792.woff2") format("woff2"), url("type/WF-031173-011076-002792.woff") format("woff");
-	font-style: normal;
-	font-weight: 400;
-	}
-	
-@font-face {
-	font-family: 'BrennerSans';
-	src: url("type/WF-031173-011076-002793.woff2") format("woff2"), url("type/WF-031173-011076-002793.woff") format("woff");
-	font-style: italic;
-	font-weight: 400;
-	}
-	
-@font-face {
-	font-family: 'tmICONS';
-	src: url("type/tm19-SiteIcons-Social-Variable.ttf") format("truetype");
-	font-style: normal;
-	}
+    font-family: 'tmICONS';
+    src: url("type/tm19-SiteIcons-Social-Variable.ttf") format("truetype");
+    font-style: normal;
+}
 
 :root {
     --accent: #666;
@@ -84,13 +55,12 @@ body {
     margin: 0px;
 }
 
-h1, 
-h3 {
+h1, h3 {
     font-weight: bold;
 }
 
 h2 {
-	font-size: 16px;
+    font-size: 16px;
     letter-spacing: 0.02em;
     line-height: 26px;
     margin: 5px 0px 5px;
@@ -112,13 +82,13 @@ p {
 }
 
 p > a {
-	font-style:italic;
-	text-decoration: none;
-	color: var(--accent);
+    font-style:italic;
+    text-decoration: none;
+    color: var(--accent);
 }
 
 p > a:hover {
-	color: #000;
+    color: #000;
 }
 
 .hidden {
@@ -126,8 +96,8 @@ p > a:hover {
 }
 
 .scl-icons {
-	margin-top: 5px;
-	width: 38px;
+    margin-top: 5px;
+    width: 38px;
     height: 28px;
     /* letter-spacing: 0.15em; */
     float: left;
@@ -135,22 +105,22 @@ p > a:hover {
 }
 
 .student-url {
-	clear: both;
-	margin-top: 55px;
+    clear: both;
+    margin-top: 55px;
 }
 
 a.icon {
-	font-family: 'tmICONS';
-	font-size: 28px;
-	font-style: normal !important;
-	font-variation-settings: "wght" 0 !important;
-	transition: 0.1s font-variation-settings ease-out;
-	color: #000;
+    font-family: 'tmICONS';
+    font-size: 28px;
+    font-style: normal !important;
+    font-variation-settings: "wght" 0 !important;
+    transition: 0.1s font-variation-settings ease-out;
+    color: #000;
 }
 
 a.icon:hover {
-	font-variation-settings: "wght" 1000 !important;
-	transition: 0.1s font-variation-settings ease-out;
+    font-variation-settings: "wght" 1000 !important;
+    transition: 0.1s font-variation-settings ease-out;
 }
 
 
@@ -220,7 +190,7 @@ a.icon:hover {
 }
 
 .tm_info, .tm_page_info_panel {
-	clear: left;
+    clear: left;
     display: flex;
     flex-wrap: wrap;
 }
@@ -243,7 +213,7 @@ a.icon:hover {
 
 .tm_info_typeface, .tm_info_designer {
     flex-basis: 400px;
-	margin: 40px;
+    margin: 40px;
     flex-shrink: 0;
 }
 
@@ -258,7 +228,7 @@ a.icon:hover {
 }
 
 .tm_info_about {
-	flex-basis: 420px;
+    flex-basis: 420px;
     /*margin-top: -45px;
     margin-left: -30px;*/
 }
@@ -411,10 +381,10 @@ a.icon:hover {
 
 @media only screen and (max-width: 1088px) {
 
-	.tm_info_designer {
-		margin-top: 0px !important;
-	} 
-	
+    .tm_info_designer {
+        margin-top: 0px !important;
+    } 
+    
 }
 
 
@@ -464,13 +434,13 @@ a.icon:hover {
     }
     
     p {
-    	margin: 0px 0px 12px 0px;
+        margin: 0px 0px 12px 0px;
     }
     
     /* have border on About on mobile. but hide when deployed */
     .tm_sidebar_nav.deployed, .tm_about_panel.deployed, .tm_sidebar_nav.index {
-		width: 101%;
-	}
+        width: 101%;
+    }
 
     .tm_sidebar_permanent {
         position: fixed;
@@ -522,29 +492,29 @@ a.icon:hover {
     }
     
     .tm_info {
-    	padding: 12px 22px 30px 0px !important;
+        padding: 12px 22px 30px 0px !important;
     }
     
     .tm_page_info_panel {
-		padding: 32px 20px 32px 20px;
+        padding: 32px 20px 32px 20px;
     }
 
     .tm_info_typeface, .tm_info_designer, .tm_info_links {
-		flex-shrink: 1;
-		margin: 0px;
-		hyphens: auto;
-	}
-	
-	.tm_info_designer {
-		padding-top: 10px;
-	}
-	
-	.tm_info_links  {
-		padding-top: 12px;
-	}
-	
-	.scl-icons {
-    	margin-top: 14px;
+        flex-shrink: 1;
+        margin: 0px;
+        hyphens: auto;
+    }
+    
+    .tm_info_designer {
+        padding-top: 10px;
+    }
+    
+    .tm_info_links  {
+        padding-top: 12px;
+    }
+    
+    .scl-icons {
+        margin-top: 14px;
     }
 
     .tm_sidebar_nav {
