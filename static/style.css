@@ -212,7 +212,7 @@ a.icon:hover {
 }
 
 .tm_info_typeface, .tm_info_designer {
-    flex-basis: 400px;
+    flex-basis: 405px;
     margin: 40px;
     flex-shrink: 0;
 }
