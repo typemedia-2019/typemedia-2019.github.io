@@ -343,7 +343,7 @@ a.icon:hover {
     transition-property: transform;
     transition-duration: 0.3s;
     transition-timing-function: ease-in-out;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .tm_about_fade {
@@ -414,7 +414,7 @@ a.icon:hover {
 
     .tm_about_panel {
         pointer-events: all;
-        overflow-y: scroll;
+        overflow-y: auto;
     }
 
     .tm_content_container {
@@ -484,7 +484,7 @@ a.icon:hover {
     .tm_about_panel {
         position: fixed;
         background-color: #fff;
-        overflow-y: scroll;
+        overflow-y: auto;
         padding-top: 16vw;
         padding-left: 20px;
         /* have border on About on mobile */
@@ -522,6 +522,6 @@ a.icon:hover {
         border: none;
         padding-top: 19vw;
         padding-left: 20px;
-        overflow-y: scroll;
+        overflow-y: auto;
     }
 }
